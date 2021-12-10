@@ -32,7 +32,7 @@ FORM run.
     ''
     'FORM sel.'
     ''
-    '  " ВАШ ЗАПРОС.'
+    '  " ВАШ ЗАПРОС. Для выполнения необходимо нажать кнопку Сохранить.'
     '  SELECT * FROM t001w INTO TABLE gt_out.'
     ''
     'ENDFORM.'
