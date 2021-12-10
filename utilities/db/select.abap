@@ -21,7 +21,8 @@ FORM run.
     lc_op3 TYPE              string VALUE 'MODIFY',
     lc_op4 TYPE              string VALUE 'CALL',
     lc_op5 TYPE              string VALUE 'INCLUDE',
-    lc_op6 TYPE              string VALUE 'SUBMIT'.
+    lc_op6 TYPE              string VALUE 'SUBMIT',
+    lc_op7 TYPE              string VALUE 'PROGRAM'.
 
   l_repid = sy-repid.
 
@@ -76,7 +77,8 @@ FORM run.
           DEFINE _cod.
             LOOP AT lt_source REFERENCE INTO lr_source.
               IF lr_source->* CS lc_op1 OR lr_source->* CS lc_op2 OR lr_source->* CS lc_op3 OR
-                 lr_source->* CS lc_op4 OR lr_source->* CS lc_op5 OR lr_source->* CS lc_op6.
+                 lr_source->* CS lc_op4 OR lr_source->* CS lc_op5 OR lr_source->* CS lc_op6 OR
+                 lr_source->* CS lc_op7.
                 MOVE '<<<<   ЗАПРЕЩЁННЫЙ ОПЕРАТОР УДАЛЁН   <<<' TO lr_source->*.
               ENDIF.
             ENDLOOP.
