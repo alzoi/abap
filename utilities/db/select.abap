@@ -1,6 +1,5 @@
 FORM run.
-  DATA:
-    l_repid       TYPE              sy-repid,
+  DATA:    
     l_source      TYPE              string,
     lr_source     TYPE REF TO       string,
     lt_source     TYPE TABLE OF     string,
@@ -26,8 +25,6 @@ FORM run.
     lc_op8 TYPE              string VALUE 'NEW',
     lc_op9 TYPE              string VALUE 'CREATE'.
     
-  l_repid = sy-repid.
-
   CONCATENATE
     'REPORT SUBPOOL.'
     'DATA:'
@@ -112,7 +109,10 @@ FORM run.
             APPEND ls_return TO lt_message.
           ENDIF.
         CATCH cx_root.
-          SUBMIT (l_repid).
+          DEFINE _restart.
+            SUBMIT (sy-repid).
+          END-OF-DEFINITION.        
+          _restart.
       ENDTRY.
     ELSE.
       l_exit = 4.
