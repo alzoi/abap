@@ -62,7 +62,7 @@ FORM run.
     '  lr_display = lr_salv1->get_display_settings( ). lr_display->set_list_header( l_ttl ).'
     '  lr_salv1->display( ).'
     'ENDFORM.'
-    INTO l_source SEPARATED BY lc_sep.
+  INTO l_source SEPARATED BY lc_sep.
   SPLIT l_source AT lc_sep INTO TABLE lt_source.
 
   WHILE l_exit <> 4.
